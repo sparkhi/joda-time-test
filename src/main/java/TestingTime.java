@@ -3,6 +3,7 @@ import org.apache.commons.lang.time.FastDateFormat;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -40,9 +41,14 @@ public class TestingTime {
 
     public String getDateStringJavaUtilOnly(long instant) {
         Date nodeDate  = new Date(instant);
-        FastDateFormat dateFormat = DateFormatUtils.ISO_DATETIME_FORMAT;
         String writtenDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(nodeDate);
         return writtenDate;
+    }
+
+    public String getJodaTimeDateString(long instant) {
+        DateTime testDateTime = new DateTime(instant);
+        DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
+        return  dtf.print(testDateTime);
     }
 
     public long getConvertedInstant(long instant) {
