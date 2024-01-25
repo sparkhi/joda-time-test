@@ -33,7 +33,7 @@ public class TestingTime {
         //System.out.println("Java formatted date: " + df.format(nodeDate));
 
         FastDateFormat dateFormat = DateFormatUtils.ISO_DATETIME_FORMAT;
-        String writtenDate = dateFormat.format(nodeDate);
+        String writtenDate = df.format(nodeDate);
         //System.out.println("Commons Lang Converted Date: " + writtenDate);
         return writtenDate;
     }
@@ -41,7 +41,7 @@ public class TestingTime {
     public String getDateStringJavaUtilOnly(long instant) {
         Date nodeDate  = new Date(instant);
         FastDateFormat dateFormat = DateFormatUtils.ISO_DATETIME_FORMAT;
-        String writtenDate = dateFormat.format(nodeDate);
+        String writtenDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(nodeDate);
         return writtenDate;
     }
 
