@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TestingTime {
-    public static void main(String args[]) {
-        long instant = 0L;
+    public static void main(String[] args) {
+        long instant;
         if (args.length != 1) {
             System.out.println("Usage: java -jar joda-time-test-1.0-SNAPSHOT-jar-with-dependencies.jar [instant]");
             System.out.println("e.g. java -jar joda-time-test-1.0-SNAPSHOT-jar-with-dependencies.jar 12345678");
@@ -36,5 +36,17 @@ public class TestingTime {
         String writtenDate = dateFormat.format(nodeDate);
         //System.out.println("Commons Lang Converted Date: " + writtenDate);
         return writtenDate;
+    }
+
+    public String getDateStringJavaUtilOnly(long instant) {
+        Date nodeDate  = new Date(instant);
+        FastDateFormat dateFormat = DateFormatUtils.ISO_DATETIME_FORMAT;
+        String writtenDate = dateFormat.format(nodeDate);
+        return writtenDate;
+    }
+
+    public long getConvertedInstant(long instant) {
+        DateTime testDateTime = new DateTime(instant);
+        return testDateTime.getMillis();
     }
 }
