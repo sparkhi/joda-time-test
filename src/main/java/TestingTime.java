@@ -8,6 +8,7 @@ import org.joda.time.format.DateTimeFormatterBuilder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class TestingTime {
     public static void main(String[] args) {
@@ -54,5 +55,10 @@ public class TestingTime {
     public long getConvertedInstant(long instant) {
         DateTime testDateTime = new DateTime(instant);
         return testDateTime.getMillis();
+    }
+
+    public String getCurrentTZ() {
+        TimeZone zone = TimeZone.getDefault();
+        return zone.getDisplayName();
     }
 }

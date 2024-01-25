@@ -27,4 +27,9 @@ public class TestingTimeTest {
         long instant = 12345678L;
         assertEquals("1970-01-01T04:25:45", new TestingTime().getJodaTimeDateString(instant));
     }
+
+    @Test
+    public void shouldRunInUkTimeZone() {
+        assertEquals("Greenwich Mean Time", new TestingTime().getCurrentTZ());
+    }
 }
