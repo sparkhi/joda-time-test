@@ -3,7 +3,6 @@ import org.apache.commons.lang.time.FastDateFormat;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,9 +34,8 @@ public class TestingTime {
         //System.out.println("Java formatted date: " + df.format(nodeDate));
 
         FastDateFormat dateFormat = DateFormatUtils.ISO_DATETIME_FORMAT;
-        String writtenDate = df.format(nodeDate);
         //System.out.println("Commons Lang Converted Date: " + writtenDate);
-        return writtenDate;
+        return df.format(nodeDate);
     }
 
     public String getDateStringJavaUtilOnly(long instant) {
