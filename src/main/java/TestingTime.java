@@ -42,7 +42,9 @@ public class TestingTime {
 
     public String getDateStringJavaUtilOnly(long instant) {
         Date nodeDate  = new Date(instant);
-        String writtenDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(nodeDate);
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+        String writtenDate = sdf.format(nodeDate);
         return writtenDate;
     }
 
